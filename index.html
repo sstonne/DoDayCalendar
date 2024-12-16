@@ -118,7 +118,20 @@
                     dayDiv.style.backgroundColor = `rgba(189, 216, 197, ${completionRate / 100})`; 
                 } else if (mood === "😍") {
                     dayDiv.style.backgroundColor = `rgba(239, 169, 200, ${completionRate / 100})`; 
+                } else if (mood === "😑") {
+                    dayDiv.style.backgroundColor = `rgba(207, 208, 210, ${completionRate / 100})`; 
+                } else if (mood === "😢") {
+                    dayDiv.style.backgroundColor = `rgba(200, 223, 228, ${completionRate / 100})`; 
+                } else if (mood === "😭") {
+                    dayDiv.style.backgroundColor = `rgba(207, 210, 225, ${completionRate / 100})`;
+                } else if (mood === "😱") {
+                    dayDiv.style.backgroundColor = `rgba(220, 186, 211, ${completionRate / 100})`;
+                } else if (mood === "😕") {
+                    dayDiv.style.backgroundColor = `rgba(215, 205, 195, ${completionRate / 100})`; 
+                } else if (mood === "😡") {
+                    dayDiv.style.backgroundColor = `rgba(218, 145, 138, ${completionRate / 100})`; 
                 }
+
 
                 dayDiv.addEventListener("click", () => {
                     window.location.href = `todo.html?date=${dateKey}`;
