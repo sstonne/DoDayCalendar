@@ -66,12 +66,13 @@ input {
 }
 
 .button-container {
-    display: inline-flex;
+    display: flex; /* 버튼을 가로로 나열 */
+    justify-content: center; /* 버튼을 가운데 정렬 */
+    gap: 10px; /* 버튼 사이의 간격 */
+    margin-top: 20px; /* 버튼 컨테이너 위쪽 여백 추가 */
 }
-
 button {
-    padding: 10px 10px;
-    margin-top: 5px;
+    padding: 10px,10px;
     background-color: #EF9230;
     color: white;
     border: none;
