@@ -1,0 +1,44 @@
+{
+    "2024-12-01": {
+        "mood": "😊",
+        "completionRate": 66.67,
+        "tasks": [
+            { "text": "웹프로그래밍 과제", "time": "9:00", "category": "공부", "completed": true },
+            { "text": "웹프로그래밍 시험공부", "time": "10:00", "category": "공부", "completed": true },
+            { "text": "인공지능 시험공부", "time": "11:00", "category": "공부", "completed": true },
+            { "text": "금요일 미팅 준비", "time": "null", "category": "업무", "completed": true },
+            { "text": "업무 보고서 작성", "time": "14:00", "category": "업무", "completed": false },
+            { "text": "급여 협상 미팅", "time": "18:00", "category": "업무", "completed": true },
+            { "text": "옷장 청소하기", "time": "null", "category": "집안일", "completed": false },
+            { "text": "화장실 청소하기", "time": "null", "category": "집안일", "completed": false },
+            { "text": "빨래돌리기", "time": "19:00", "category": "집안일", "completed": true }
+        ]
+    },
+    "2024-12-02": {
+        "mood": "😍",
+        "completionRate": 33,
+        "tasks": [
+            { "text": "아침 운동", "time": "7:00", "category": "운동", "completed": true },
+            { "text": "강아지 산책", "time": "null", "category": "개인", "completed": false },
+            { "text": "자료 조사", "time": "10:00", "category": "업무", "completed": false },
+            { "text": "점심 약속", "time": "12:00", "category": "개인", "completed": true },
+            { "text": "프로젝트 회의", "time": "15:00", "category": "업무", "completed": false },
+            { "text": "식료품 구매", "time": "19:00", "category": "집안일", "completed": true }
+        ]
+    },
+    "2024-12-03": {
+        "mood": "😢",
+        "completionRate": 90,
+        "tasks": [
+            { "text": "아침 조깅", "time": "6:30", "category": "운동", "completed": true },
+            { "text": "업무 보고서 작성", "time": "9:00", "category": "업무", "completed": true },
+            { "text": "고객 미팅", "time": "11:00", "category": "업무", "completed": true },
+            { "text": "점심 식사", "time": "13:00", "category": "개인", "completed": true },
+            { "text": "커피 마시기", "time": "15:00", "category": "개인", "completed": true },
+            { "text": "쇼핑몰 방문", "time": "17:00", "category": "개인", "completed": true },
+            { "text": "요가 클래스", "time": "19:30", "category": "운동", "completed": false },
+            { "text": "저녁 준비", "time": "null", "category": "집안일", "completed": false },
+            { "text": "정리 정돈", "time": "null", "category": "집안일", "completed": true }
+        ]
+    }
+}

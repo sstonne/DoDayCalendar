@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="WP2_2115153_이수민_todo.css">
+</head>
+<body>
+    <div class="todo-container">
+        <div class="calendar-timer-icon">
+            <a href="WP2_2115153_이수민_calendar.html" title="Back to Calendar">
+                <img src="2115153_calendar.png" alt="Calendar" />
+            </a>
+            <a href="WP2_2115153_이수민_timer.html" title="Go to Timer">
+                <img src="2115153_timer.png" alt="Timer" />
+            </a>
+        </div>
+        
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="date-time">
+                <span id="currentDate"></span>
+            </div>
+            <h1>To Do List</h1>
+            <div class="mood">
+                <label for="moodSelector">Today's Mood:</label>
+                <select id="moodSelector">
+                    <option value="">😊</option>
+                    <option value="😊">😊 Happy</option>
+                    <option value="🙂">🙂 Good</option>
+                    <option value="😍">😍 Love</option>
+                    <option value="😑">😑 Bored</option>
+                    <option value="😢">😢 Sad</option>
+                    <option value="😭">😭 SoSad</option>
+                    <option value="😱">😱 Frustrated</option>
+                    <option value="😕">😕 Confuse</option>
+                    <option value="😡">😡 Angry</option>
+
+                </select>
+            </div>
+        </div>
+
+        <!-- 일정 추가 -->
+        <div class="add-section">
+            <input type="text" id="todoInput" placeholder="Enter a new task">
+            <div class="time-control">
+                <label>
+                    <input type="checkbox" id="enableTime" checked> Set Time
+                </label>
+                <input type="time" id="todoTime" value="09:00"> <!--초기값 셋팅으로 편의성 향상-->
+            </div>
+            <input type="text" id="categoryInput" placeholder="Category (optional)">
+            <button id="addButton">Add</button>
+        </div>
+
+        <!-- 카테고리별 일정 -->
+        <div id="categories"></div>
+
+        <!-- 달성률 -->
+        <div class="progress">
+            <p id="completionRate">Completion Rate: 0%</p>
+        </div>
+
+        <!-- 한줄 명언 -->
+        <div class="quote">
+            <p id="quote"></p>
+        </div>
+    </div>
+
+    <script src="WP2_2115153_이수민_todo.js"></script>
+</body>
+</html>

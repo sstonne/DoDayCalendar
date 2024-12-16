@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="WP2_2115153_이수민_timer.css">
+</head>
+<body>
+    <div class="timer-container">
+        <h1 class="timer-name">Pomodoro Timer</h1>
+        <label for="timerInput">Set Timer (min) :</label>
+        <input id="timerInput" type="number" min="1" value="60"/>
+        <div class="button-container">
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+        </div>
+        <div class="timer">
+            <div class="circle" id="circle"></div>
+            <div class="time-display" id="timeDisplay">00:00</div>
+        </div>
+    </div>
+    <script src="WP2_2115153_이수민_timer.js"></script>
+</body>
+</html>
