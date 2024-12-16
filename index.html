@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoDay Calendar</title>
+    <title>Calendar</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="calendar-container">
         <h1 class="calendar-name">DoDay Calendar</h1>
         <div class="calendar-header">
-            <img id="prevYear" src="2115153_yearback.png" alt="Previous Year" class="nav-icon">
-            <img id="prevMonth" src="2115153_monthback.png" alt="Previous Month" class="nav-icon">
+            <img id="prevYear" src="2115153_yearback.png" alt="Previous Year" class="nav-icon"> <!-- 연도 이동 버튼 -->
+            <img id="prevMonth" src="2115153_monthback.png" alt="Previous Month" class="nav-icon"> <!-- 월 이동 버튼 -->
             <span id="currentMonth"></span>
-            <img id="nextMonth" src="2115153_month.png" alt="Next Month" class="nav-icon">
-            <img id="nextYear" src="2115153_year.png" alt="Next Year" class="nav-icon">
+            <img id="nextMonth" src="2115153_month.png" alt="Next Month" class="nav-icon"> <!-- 월 이동 버튼 -->
+            <img id="nextYear" src="2115153_year.png" alt="Next Year" class="nav-icon"> <!-- 연도 이동 버튼 -->
         </div>
 
         <!-- 월별 Completion Rate 표시 -->
@@ -36,133 +36,6 @@
         <div id="calendar"></div>
     </div>
 
-    <!-- JavaScript 통합 -->
-    <script>
-        // 현재 날짜와 월 데이터
-        let currentYear = new Date().getFullYear();
-        let currentMonth = new Date().getMonth(); // 0: January, 11: December
-        const today = new Date();
-
-        // 캘린더 데이터 로드
-        const loadCalendarData = () => {
-            return JSON.parse(localStorage.getItem("calendarData")) || {};
-        };
-
-        // 현재 월 표시
-        const updateMonthHeader = () => {
-            const monthNames = [
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
-            ];
-            const header = document.getElementById("currentMonth");
-            header.innerText = `${monthNames[currentMonth]} ${currentYear}`;
-        };
-
-        const calculateMonthlyCompletionByRecordedDays = (calendarData) => {
-            let sumCompletionRate = 0;
-            let recordedDaysCount = 0;
-
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-                const dayData = calendarData[dateKey];
-
-                if (dayData && dayData.tasks && dayData.tasks.length > 0) {
-                    sumCompletionRate += dayData.completionRate || 0;
-                    recordedDaysCount++;
-                }
-            }
-
-            return recordedDaysCount > 0
-                ? (sumCompletionRate / recordedDaysCount).toFixed(2)
-                : 0;
-        };
-
-        const generateCalendar = () => {
-            const calendarContainer = document.getElementById("calendar");
-            calendarContainer.innerHTML = "";
-
-            const calendarData = loadCalendarData();
-
-            const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                const emptyDiv = document.createElement("div");
-                emptyDiv.classList.add("day");
-                emptyDiv.style.visibility = "hidden";
-                calendarContainer.appendChild(emptyDiv);
-            }
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-                const mood = calendarData[dateKey]?.mood || "";
-                const completionRate = calendarData[dateKey]?.completionRate || 0;
-
-                const dayDiv = document.createElement("div");
-                dayDiv.classList.add("day");
-                dayDiv.innerText = day;
-
-                if (
-                    currentYear === today.getFullYear() &&
-                    currentMonth === today.getMonth() &&
-                    day === today.getDate()
-                ) {
-                    dayDiv.classList.add("today");
-                }
-
-                if (mood === "😊") {
-                    dayDiv.style.backgroundColor = `rgba(245, 226, 124, ${completionRate / 100})`;
-                } else if (mood === "🙂") {
-                    dayDiv.style.backgroundColor = `rgba(189, 216, 197, ${completionRate / 100})`; 
-                } else if (mood === "😍") {
-                    dayDiv.style.backgroundColor = `rgba(239, 169, 200, ${completionRate / 100})`; 
-                }
-
-                dayDiv.addEventListener("click", () => {
-                    window.location.href = `todo.html?date=${dateKey}`;
-                });
-
-                calendarContainer.appendChild(dayDiv);
-            }
-
-            const monthlyCompletion = calculateMonthlyCompletionByRecordedDays(calendarData);
-            const monthlyDiv = document.getElementById("monthlyCompletion");
-            monthlyDiv.innerText = `This month's average completion rate: ${monthlyCompletion}%`;
-        };
-
-        // 이전 월로 이동
-        document.getElementById("prevMonth").addEventListener("click", () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            updateMonthHeader();
-            generateCalendar();
-        });
-
-        document.getElementById("nextMonth").addEventListener("click", () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            updateMonthHeader();
-            generateCalendar();
-        });
-
-        // 초기 데이터 저장 함수
-        const initializeLocalStorage = (fetchedData) => {
-            if (!localStorage.getItem("calendarData")) {
-                localStorage.setItem("calendarData", JSON.stringify(fetchedData));
-            }
-        };
-
-        initializeLocalStorage({});
-        updateMonthHeader();
-        generateCalendar();
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
