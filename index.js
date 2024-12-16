@@ -102,7 +102,7 @@ const generateCalendar = () => {
 
         // 날짜 클릭 이벤트
         dayDiv.addEventListener("click", () => {
-            window.location.href = `./WP2_2115153_이수민_todo.html?date=${dateKey}`;
+            window.location.href = `WP2_2115153_이수민_todo.html?date=${dateKey}`;
         });
 
         calendarContainer.appendChild(dayDiv);
